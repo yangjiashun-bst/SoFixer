@@ -18,7 +18,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         tag_name: '${{ github.ref }}'
         release_name: 'Release ${{ github.ref }}'
@@ -72,7 +72,7 @@ jobs:
     - name: Upload build 32
       uses: actions/upload-release-asset@v1.0.2
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: '${{ needs.create_release.outputs.UPLOAD_URL }}'
         asset_path: '${{ github.workspace }}/build32/SoFixer32${{ steps.release_name_format.outputs.format }}'
@@ -82,7 +82,7 @@ jobs:
     - name: Upload build 64
       uses: actions/upload-release-asset@v1.0.2
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: '${{ needs.create_release.outputs.UPLOAD_URL }}'
         asset_path: '${{ github.workspace }}/build64/SoFixer64${{ steps.release_name_format.outputs.format }}'
