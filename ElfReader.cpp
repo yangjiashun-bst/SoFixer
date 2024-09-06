@@ -13,7 +13,12 @@
 #include <cstdint>
 #include <cstring>
 #include <fcntl.h>
+#ifdef _WIN32
+// Windows特定代码
+#else
+// Unix/Linux特定代码
 #include <unistd.h>
+#endif
 #include <errno.h>
 #include <vector>
 
