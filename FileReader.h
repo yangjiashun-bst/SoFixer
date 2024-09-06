@@ -50,7 +50,7 @@ public:
         if (offset >= 0) {
             fseek(fp, offset, SEEK_SET);
         }
-        auto rc = TEMP_FAILURE_RETRY(fread(addr, 1, len, fp));
+        auto rc = (fread(addr, 1, len, fp));
 
         if (rc < 0) {
             FLOGE("can't read file \"%s\": %s", source, strerror(errno));
